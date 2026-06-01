@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Fake Detector</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>AI Fake Detector</h1>
+      <label class="switch-row">
+        <span>Enable scan</span>
+        <input id="toggle" type="checkbox" />
+      </label>
+      <div class="action-row">
+        <button id="scanBtn" type="button">Scan Current Page</button>
+        <button id="clearBtn" type="button" class="secondary-btn">Clear</button>
+        <button id="floatBtn" type="button" class="secondary-btn">Float</button>
+      </div>
+
+      <section>
+        <h2>Result</h2>
+        <p id="status">Idle</p>
+        <p id="videoCount">Accessible videos: 0</p>
+        <ul id="reasons"></ul>
+      </section>
+
+      <section>
+        <h2>Quick Summary</h2>
+        <div id="summary" class="summary-grid"></div>
+      </section>
+
+      <section>
+        <h2>Findings</h2>
+        <div class="controls-row">
+          <select id="modalityFilter">
+            <option value="all">All</option>
+            <option value="text">Text</option>
+            <option value="image">Images</option>
+            <option value="video">Videos</option>
+          </select>
+          <select id="statusFilter">
+            <option value="all">All status</option>
+            <option value="fake">Only fake</option>
+            <option value="authentic">Only authentic</option>
+          </select>
+          <select id="sortBy">
+            <option value="risk_desc">Risk high to low</option>
+            <option value="risk_asc">Risk low to high</option>
+          </select>
+        </div>
+        <div id="details" class="details-list"></div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

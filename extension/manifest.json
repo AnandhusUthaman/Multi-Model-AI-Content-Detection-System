@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AI Fake Content Detector",
+  "version": "0.1.0",
+  "description": "Detects potentially AI-generated/fake text, images, and videos on webpages.",
+  "permissions": ["activeTab", "storage", "scripting", "webNavigation"],
+  "host_permissions": ["<all_urls>", "http://localhost:8000/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Fake Content Detector"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
